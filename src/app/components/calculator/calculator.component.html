@@ -1,0 +1,125 @@
+<div class="wrapper">
+    <div class="calculate-container">
+       <div class="content">
+        <div class="header">
+            <div class="image-container">
+                <img src="/assets/calc.png" alt="">
+            </div>
+            <span class="header-title">
+                Калькулятор доходности
+            </span>
+        </div>
+        <div class="inner-container">
+            <div class="deposite">
+               <div class="input-container">
+                <span class="input-title">Тип дипозита</span>
+                <app-select></app-select>
+               </div>
+               <div class="currency-container">
+                <div class="currency-item">
+                    <span class="title">BTC</span>
+                    <div class="border"></div>
+                </div>
+                <div class="currency-item">
+                    <span class="title">UAH</span>
+                    <div class="border"></div>
+                </div>
+                <div class="currency-item">
+                    <span class="title">RUB</span>
+                    <div class="border"></div>
+                </div>
+                <div class="currency-item">
+                    <span class="title">EUR</span>
+                    <div class="border"></div>
+                </div>
+                <div class="currency-item">
+                    <span class="title">USD</span>
+                    <div class="border"></div>
+                </div>
+               </div> 
+            </div>
+            <div class="amount">
+                <div class="range-container">
+                   <span class="range-title">Сумма инвестиций</span> 
+                   <app-range></app-range>
+                </div>
+                <div class="amount-inform">
+                    <span class="title">10,000</span>
+                    <span class="currency">BTC</span>
+                </div>
+            </div>
+            <div class="term">
+                <div class="term-container">
+                    <span class="term-title">Срок инвестиций ( Месяцев )</span> 
+                    <app-range></app-range>
+                    <div class="numbers">
+                        <span 
+                        class="number"
+                        *ngFor="let number of numbers"
+                        >
+                        {{number}}
+                        </span>
+                    </div>
+                </div>
+                <div class="procent-container">
+                   <div class="title">Процентная ставка</div> 
+                   <div class="description">
+                    <span>0.75%</span>&nbsp;<small>в день</small> 
+                   </div>
+                </div>
+            </div>
+            <div class="datepickers">
+               <div class="date-container">
+                  <span class="date-title">Старт инвестиции</span>
+                  <app-datepicker></app-datepicker>
+               </div>
+               <div class="date-container">
+                <span class="date-title">Завершение инвестиции</span>
+                <app-datepicker></app-datepicker>
+             </div>
+            </div>
+        </div>
+       </div>
+    </div>
+    <div class="grafic-container">
+        <div class="side-inner">
+           <div class="header">
+             <div class="left-grade">
+                <div class="inform">
+                    <span class="head">Инвестировали</span>
+                    <span class="foot">10,000 BTC</span>
+                </div>
+                <div class="grade"></div>
+             </div>
+             <div class="right-grade">
+                <div class="inform">
+                    <span class="head">Получаете</span>
+                    <span class="foot">19,150 BTC</span>
+                </div>
+                <div class="grade"></div>
+             </div>
+           </div> 
+           <div class="under-header">
+            <div class="text">
+                <div class="left-text">
+                    <span>Инвестиция</span>
+                    <span>Процент прибыли</span>
+                </div>
+                <div class="right-text">
+                    <span>10,000 BTC</span>
+                    <span>91.5 %</span>
+                </div>
+            </div>
+            <div class="border"></div>
+           </div>
+           <div class="above-bottom">
+            <div class="left-text">Прибыль с
+                инвестиции</div>
+            <span>9,150 BTC</span>
+           </div>
+           <button class="bottom-btn">
+            <span>ИНВЕСТИРОВАТЬ СЕЙЧАС</span>
+           </button>
+        </div>
+    </div>
+</div>

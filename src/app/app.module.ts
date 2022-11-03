@@ -7,6 +7,9 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
 import { SelectComponent } from './shared/components/select/select.component';
 import { RangeComponent } from './shared/components/range/range.component';
 import { DatepickerComponent } from './shared/components/datepicker/datepicker.component';
+import { FormatdatePipe } from './shared/pipes/formatdate.pipe';
+import { DatepickerEndComponent } from './shared/components/datepicker-end/datepicker-end.component';
+import { AmountComponent } from './shared/components/amount/amount.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { DatepickerComponent } from './shared/components/datepicker/datepicker.c
     CalculatorComponent,
     SelectComponent,
     RangeComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    FormatdatePipe,
+    DatepickerEndComponent,
+    AmountComponent
   ],
   imports: [
     BrowserModule,

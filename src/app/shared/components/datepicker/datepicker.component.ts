@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+
+import { DateService } from '../../services/date.service';
 
 @Component({
   selector: 'app-datepicker',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatepickerComponent implements OnInit {
 
-  constructor() { }
+  currentDate: string;
+
+  constructor(private dateService: DateService) {
+  }
 
   ngOnInit(): void {
+    this.dateService.date.subscribe(
+
+      (date) => {
+        this.currentDate = date.format('YYYY-MM-DD');
+        console.log(this.currentDate);
+      }
+    );
   }
 
 }

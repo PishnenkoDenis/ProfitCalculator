@@ -13,49 +13,55 @@
             <div class="deposite">
                <div class="input-container">
                 <span class="input-title">Тип дипозита</span>
-                <app-select></app-select>
+                <app-select 
+                [options]="currencyItems"
+                (onChanged)="setDepositeType($event)"
+                ></app-select>
                </div>
                <div class="currency-container">
-                <div class="currency-item">
-                    <span class="title">BTC</span>
-                    <div class="border"></div>
-                </div>
-                <div class="currency-item">
-                    <span class="title">UAH</span>
-                    <div class="border"></div>
-                </div>
-                <div class="currency-item">
-                    <span class="title">RUB</span>
-                    <div class="border"></div>
-                </div>
-                <div class="currency-item">
-                    <span class="title">EUR</span>
-                    <div class="border"></div>
-                </div>
-                <div class="currency-item">
-                    <span class="title">USD</span>
-                    <div class="border"></div>
+                <div 
+                class="currency-item"
+                *ngFor="let item of currencyItems"
+                >
+                  <span 
+                  class="title"
+                  [style.color]="item === depositeType? '#FBED10': '#222222'"
+                  >
+                  {{item}}
+                  </span>
+                  <div 
+                  class="border"
+                  *ngIf="item === depositeType"
+                  ></div>
                 </div>
                </div> 
             </div>
             <div class="amount">
                 <div class="range-container">
                    <span class="range-title">Сумма инвестиций</span> 
-                   <app-range></app-range>
+                   <app-range
+                   [properties]="amountRange"
+                   (onChanged)="setDepositeAmount($event)"
+                   ></app-range>
                 </div>
+
                 <div class="amount-inform">
-                    <span class="title">10,000</span>
-                    <span class="currency">BTC</span>
+                    <span class="title">{{depositeAmount? depositeAmount: 0}}</span>
+                    <span class="currency">{{depositeType? depositeType: ''}}</span>
                 </div>
             </div>
             <div class="term">
                 <div class="term-container">
                     <span class="term-title">Срок инвестиций ( Месяцев )</span> 
-                    <app-range></app-range>
+                    <app-range
+                    [properties]="termRange"
+                    (onChanged)="setDepositeTermAndCalculateProfit($event)"
+                    ></app-range>
                     <div class="numbers">
                         <span 
                         class="number"
                         *ngFor="let number of numbers"
+                        [style.color]="depositeTerm == number? '#222222': '#EEEEEE'"
                         >
                         {{number}}
                         </span>
@@ -75,7 +81,9 @@
                </div>
                <div class="date-container">
                 <span class="date-title">Завершение инвестиции</span>
-                <app-datepicker></app-datepicker>
+                <app-datepicker-end
+                [term]="depositeTerm"
+                ></app-datepicker-end>
              </div>
             </div>
         </div>
@@ -87,14 +95,16 @@
              <div class="left-grade">
                 <div class="inform">
                     <span class="head">Инвестировали</span>
-                    <span class="foot">10,000 BTC</span>
+                    <span class="foot">
+                    {{depositeAmount? depositeAmount: 0}} {{depositeType? depositeType: ''}}
+                    </span>
                 </div>
                 <div class="grade"></div>
              </div>
              <div class="right-grade">
                 <div class="inform">
                     <span class="head">Получаете</span>
-                    <span class="foot">19,150 BTC</span>
+                    <span class="foot">{{$profit && depositeTerm ? +depositeAmount + ($profit | async): 0}} {{$profit? depositeType: ''}}</span>
                 </div>
                 <div class="grade"></div>
              </div>
@@ -106,8 +116,10 @@
                     <span>Процент прибыли</span>
                 </div>
                 <div class="right-text">
-                    <span>10,000 BTC</span>
-                    <span>91.5 %</span>
+                    <span>
+                        {{depositeAmount? depositeAmount: 0}} {{depositeType? depositeType: ''}}
+                    </span>
+                    <span>{{$profit && depositeTerm ? (calculateService.$procent | async): 0}} %</span>
                 </div>
             </div>
             <div class="border"></div>
@@ -115,7 +127,7 @@
            <div class="above-bottom">
             <div class="left-text">Прибыль с
                 инвестиции</div>
-            <span>9,150 BTC</span>
+            <span>{{$profit && depositeTerm? ($profit | async) : ''}} {{$profit? depositeType: ''}}</span>
            </div>
            <button class="bottom-btn">
             <span>ИНВЕСТИРОВАТЬ СЕЙЧАС</span>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IRange } from 'src/app/model/IRange';
 
 @Component({
   selector: 'app-range',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RangeComponent implements OnInit {
 
+  @Output() Changed = new EventEmitter<any>();
+
+  @Input() properties: IRange;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getRangeValue(event: any) {
+    this.Changed.emit(event);
   }
 
 }

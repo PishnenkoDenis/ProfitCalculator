@@ -1,3 +1,13 @@
-<select name="deposite-type" id="deposite-type">
-    <option value="Standart">Standart</option>
+<select 
+#select
+name="deposite-type" 
+id="deposite-type"
+(change)="getOptionValue(select.value)"
+>
+    <option 
+    *ngFor="let option of options"
+    value={{option}}
+    >
+    {{option}}
+    </option>
 </select>

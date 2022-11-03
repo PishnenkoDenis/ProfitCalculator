@@ -89,7 +89,6 @@
                         font-weight: 700;
                         font-size: 18px;
                         line-height: 21px;
-                        color: var(--black);
                       }
 
                       .border {
@@ -176,7 +175,6 @@
                         font-family: 'Roboto', sans-serif;
                         font-size: 18px;
                         line-height: 21px;
-                        color:var(--medium-grey);
                       }
                     }
                   }
@@ -392,6 +390,7 @@
           background-image: url(/assets/btn.png);
           background-repeat: no-repeat;
           background-position: center center;
+          cursor: pointer;
         }
 
       }  

@@ -15,13 +15,13 @@
                 <span class="input-title">Тип дипозита</span>
                 <app-select 
                 [options]="currencyItems"
-                (onChanged)="setDepositeType($event)"
+                (Changed)="setDepositeType($event)"
                 ></app-select>
                </div>
                <div class="currency-container">
                 <div 
                 class="currency-item"
-                *ngFor="let item of currencyItems"
+                *ngFor="let item of currencyItems; let i = index"
                 >
                   <span 
                   class="title"
@@ -41,7 +41,7 @@
                    <span class="range-title">Сумма инвестиций</span> 
                    <app-range
                    [properties]="amountRange"
-                   (onChanged)="setDepositeAmount($event)"
+                   (Changed)="setDepositeAmount($event)"
                    ></app-range>
                 </div>
 
@@ -55,7 +55,7 @@
                     <span class="term-title">Срок инвестиций ( Месяцев )</span> 
                     <app-range
                     [properties]="termRange"
-                    (onChanged)="setDepositeTermAndCalculateProfit($event)"
+                    (Changed)="setDepositeTermAndCalculateProfit($event)"
                     ></app-range>
                     <div class="numbers">
                         <span 
@@ -99,14 +99,23 @@
                     {{depositeAmount? depositeAmount: 0}} {{depositeType? depositeType: ''}}
                     </span>
                 </div>
-                <div class="grade"></div>
+                <div class="grade" #grade></div>
              </div>
              <div class="right-grade">
-                <div class="inform">
+                <div class="inform" [style.margin-bottom]="amountCase ? 0 : '20px'">
                     <span class="head">Получаете</span>
-                    <span class="foot">{{$profit && depositeTerm ? +depositeAmount + ($profit | async): 0}} {{$profit? depositeType: ''}}</span>
+                    <span class="foot">
+                        {{$profit && depositeTerm && depositeAmount ? +depositeAmount + ($profit | async): 0}} {{$profit? depositeType: ''}}
+                    </span>
                 </div>
-                <div class="grade"></div>
+                <div class="grade-wrapper" [style.display]="amountCase ? 'flex': 'none'">
+                    <div 
+                    class="inner-grade" 
+                    #backGrade
+                    [style.border-top-left-radius]="amountCase === 100 ? '15px':''"
+                    [style.border-top-right-radius]="amountCase === 100 ? '15px':''"
+                    ></div>
+                </div>
              </div>
            </div> 
            <div class="under-header">

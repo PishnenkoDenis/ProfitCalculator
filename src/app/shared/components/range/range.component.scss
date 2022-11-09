@@ -7,6 +7,8 @@ input[type=range]{
   appearance: none;
   background-color: var(--medium-grey);
   border-radius: 30px;
+  transition: .2s;
+  -webkit-transition: .2s;
 
 }
 
@@ -17,25 +19,29 @@ input[type=range]{
   overflow: hidden;
 } 
 
-// .progress{
-//     position: absolute;
-//     content:'';
-//     width: 50%;
-//     height: 3px;
-//     background-color: var(--yellow);
-//     top: calc(50% + 1.5px);
-//     z-index: 1;
-// }
+.progress{
+    position: absolute;
+    max-width: 460px;
+    content:'';
+    top: 7px;
+    z-index: 1;
+    height: 10px;
+    background-color: var(--yellow);
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
 
 input[type=range]::-webkit-slider-runnable-track {
     height: 10px;
     width: 460px;
+    appearance: none;
     -webkit-appearance: none;
-    background-color: var(--medium-grey);
+    color: var(--yellow);
     border-radius: 30px;
-}    
+}
 
-input[type='range']::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
+    appearance: none;
     -webkit-appearance: none;
     width: 15px;
     height: 38px;
@@ -45,4 +51,5 @@ input[type='range']::-webkit-slider-thumb {
     border-radius: 3px;
     margin-top: -13px;
     cursor: pointer;
+    z-index: 3;
 }

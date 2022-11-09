@@ -17,7 +17,11 @@ select {
     -webkit-user-select: none;
     -moz-user-select: -moz-none;
     -ms-user-select: none;
-     user-select: none;
+    user-select: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
 
     &:active, &:focus {
       outline: none !important;

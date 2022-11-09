@@ -16,14 +16,18 @@ export class CalculateService {
 
   calculateProfit(term: any = this.termValue, amount: any) {
      let profit: number;
-     if (term) {
-     this.termValue = term;
-     profit = ((amount * this.rate) / 100) * -term;
-     } else {
-      profit = ((amount * this.rate) / 100) * -this.termValue;
+     if (amount) {
+      if (term) {
+        this.termValue = term;
+        profit = ((amount * this.rate) / 100) * -term;
+        } else {
+         profit = ((amount * this.rate) / 100) * -this.termValue;
+        }
+      this.profitValue = profit;
+      return profit;
      }
-     this.profitValue = profit;
-     return profit;
+     this.termValue = term;
+     return 0;
   }
 
   calculateProcent(amount: any, profit: any) {
@@ -32,7 +36,8 @@ export class CalculateService {
   }
 
   setProcentOfProfit(amount: any) {
-     this.$procent.next(this.calculateProcent(amount, this.profitValue));
+    if (amount) { this.$procent.next(this.calculateProcent(amount, this.profitValue)); }
+    else { this.$procent.next(0); }
   }
 
   clearProcentStream() {

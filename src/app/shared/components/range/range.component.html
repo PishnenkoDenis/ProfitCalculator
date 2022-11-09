@@ -8,6 +8,12 @@
     max={{properties.max}}
     step={{properties.step}}
     (change)="getRangeValue(range.value)"
+    (input)="getProgress(range.value)"
+    value={{properties.min}}
     >
-    <!-- <div class="progress"></div> -->
+    <div 
+    #progress 
+    class="progress"
+    [style.width]="rangeValue"
+    ></div>
 </div>

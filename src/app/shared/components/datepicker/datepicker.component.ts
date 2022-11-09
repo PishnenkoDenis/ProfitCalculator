@@ -20,7 +20,6 @@ export class DatepickerComponent implements OnInit {
 
       (date) => {
         this.currentDate = date.format('YYYY-MM-DD');
-        console.log(this.currentDate);
       }
     );
   }

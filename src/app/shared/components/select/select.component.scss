@@ -47,3 +47,9 @@ select {
     }
   
 }
+
+@media (max-width: 480px) {
+  select {
+    height: 48px;
+  }
+}

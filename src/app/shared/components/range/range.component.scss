@@ -67,3 +67,18 @@ input[type=range]::-webkit-slider-thumb {
     max-width: 360px;
   }
 }
+
+@media (max-width: 480px) {
+  input[type=range] {
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .progress {
+    max-width: 440px;
+  }
+}
+

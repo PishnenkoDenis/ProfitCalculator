@@ -562,3 +562,108 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .wrapper {
+    width: 480px;
+    height: 1344px;
+    flex-direction: column;
+
+    .calculate-container {
+      height: 996px;
+      width: 100%;
+
+      .content {
+        width: 440px;
+        height: 100%;
+        margin: 60px 20px 40px 20px;
+        gap: 40px;
+
+        .header {
+
+          .header-title {
+            font-size: 28px;
+            line-height: 33px;
+         }
+        }
+
+        .inner-container {
+          height: 763px;
+
+          .datepickers {
+            width: 440px;
+            flex-direction: column;
+            margin-top: 119px;
+            gap: 41px;
+          }
+
+          .amount {
+
+            .range-container {
+              width: 260px;
+            }
+
+            .amount-inform {
+              width: 160px;
+            }
+          }
+
+          .deposite {
+            flex-direction: column;
+            height: 146px;
+            gap: 36px;
+
+            .currency-container {
+              margin-top: 0;
+            }
+          }
+
+          .term {
+            flex-direction: column;
+            
+
+            .term-container {
+              width: 440px;
+            }
+
+            .procent-container {
+               width: 440px;
+               height: 106px;
+               align-items: center;
+               gap: 0;
+
+               .title {
+                width: 175px;
+                margin-top: 12px;
+               }
+
+               .description {
+                margin-bottom: 31px;
+               }
+            }
+          }
+
+          .datepickers {
+            width: 440px;
+            flex-direction: column;
+          }
+
+        }
+      }
+    }
+
+    .grafic-container {
+      height: 348px;
+      width: 100%;
+
+      .side-inner {
+        width: 440px;
+
+        .under-header {
+          margin-top: 89px;
+        }
+      }
+    }
+  
+  }
+}

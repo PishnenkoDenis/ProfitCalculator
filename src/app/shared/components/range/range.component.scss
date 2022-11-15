@@ -53,3 +53,17 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer;
     z-index: 3;
 }
+
+@media (max-width: 640px) {
+  input[type=range] {
+    width: 360px;
+  }
+
+  .container {
+    width: 360px;
+  }
+
+  .progress {
+    max-width: 360px;
+  }
+}

@@ -477,3 +477,88 @@
     }
   }
 }
+
+@media (max-width: 640px) {
+  .wrapper {
+    width: 640px;
+    height: 1072px;
+    flex-direction: column;
+
+    .calculate-container {
+      height: 724px;
+      width: 100%;
+
+      .content {
+        width: 600px;
+
+        .inner-container {
+
+          .amount-inform {
+            width: 250px;
+          }
+
+          .deposite {
+
+            .currency-container {
+              gap: 15px;
+              max-width: 256px;
+            }
+          }
+
+          .term {
+
+            .term-container {
+              width: 360px;
+
+              .numbers {
+                width: 360px;
+              }
+            }
+          }
+
+          .datepickers {
+            width: 600px;
+
+            .date-container {
+              width: 280px;
+            }
+          }
+        }
+      }
+
+      .date-container {
+        width: 280px;
+      }
+
+    }
+
+    .grafic-container {
+      height: 348px;
+      width: 100%;
+
+      .side-inner {
+        height: 348px;
+        width: 600px;
+        margin: 40px 20px 60px 20px;
+
+        .header {
+          display: none;
+        }
+
+        .under-header {
+          margin-top: 58px;
+        }
+
+        .above-bottom {
+          margin-top: 26px;
+        }
+
+        .bottom-btn {
+          margin-top: 33px;
+          background-color: var(--yellow) !important;
+          color: var(--black);
+        }
+      }
+    }
+  }
+}
